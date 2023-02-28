@@ -51,14 +51,15 @@ const mutations = {
     //角色
     state.roles = userInfo.roles;
   }, //最终计算出的异步路由
-  SET_RESULTASYNCROUTES: (state, asyncRoutes) => {
-      //vuex保存当前用户的异步路由，注意，一个用户需要展示完成路由：常量、异步、任意路由
-      state.resultAsyncRoutes = asyncRoutes;
-      //计算出当前用户需要展示所有路由
-      state.resultAllRputes = constantRoutes.concat(state.resultAsyncRoutes,anyRoutes);
-      //给路由器添加新的路由
-       router.addRoutes(state.resultAllRputes)
-  }
+  // SET_RESULTASYNCROUTES: (state, asyncRoutes) => {
+  //     //vuex保存当前用户的异步路由，注意，一个用户需要展示完成路由：常量、异步、任意路由
+  //     state.resultAsyncRoutes = asyncRoutes;
+  //     //计算出当前用户需要展示所有路由
+  //     state.resultAllRputes = constantRoutes.concat(state.resultAsyncRoutes,anyRoutes);
+     
+  //     //给路由器添加新的路由
+  //      router.addRoutes(state.resultAllRputes)
+  // }
 }
 
 //定义一个函数：两个数组进行对比，对比出当前用户到底显示哪些异步路由
@@ -109,7 +110,8 @@ const actions = {
         const { data } = response
         commit('SET_USERINFO', data);
         console.log(data.routes)
-        commit('SET_RESULTASYNCROUTES', computedAsyncRoutes(anyncRoutes, data.routes));
+        // commit('SET_RESULTASYNCROUTES', computedAsyncRoutes(cloneDeep(anyncRoutes), data.routes));
+        // commit('SET_RESULTASYNCROUTES',computedAsyncRoutes(cloneDeep(asyncRoutes),data.routes));
         if (!data) {
           return reject('Verification failed, please Login again.')
         }

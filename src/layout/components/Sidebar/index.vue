@@ -31,7 +31,9 @@ export default {
       'sidebar'
     ]),
     routes() {
-      return this.$store.state.user.resultAllRputes
+      // 遍历应该是处理后的路由
+      // console.log( this.$store.state.user.resultAllRputes)
+      return this.$router.options.routes
     },
     activeMenu() {
       const route = this.$route

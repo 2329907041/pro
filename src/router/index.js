@@ -56,11 +56,6 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
-]
-// 异步路由过滤出不同的权限展示不同的路由
-export const anyncRoutes = [
-
   {
     name: 'Acl',
     path: '/acl',
@@ -146,13 +141,13 @@ export const anyncRoutes = [
       }
     ]
   },
-]
-
-// 任意路由
-export const anyRoutes = [
-  // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
+// 异步路由过滤出不同的权限展示不同的路由
+
+
+// 任意路由
+
 
 
 const createRouter = () => new Router({

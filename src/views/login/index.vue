@@ -100,7 +100,7 @@ export default {
       console.log(this.redirect)
         this.$router.push({ path: this.redirect || '/' })
     },
-    showPwd() {
+   showPwd() {
       if (this.passwordType === 'password') {
         this.passwordType = ''
       } else {
